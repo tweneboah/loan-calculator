@@ -36,7 +36,10 @@ const CalculateInterestForm = (props) => {
   const onFormSubmit = e => {
     props.createLoan(formData);
     //Emptying the fields
-    setFormData({...formData, amount: '', rate: '', duration: ''});
+    setFormData({...formData, amount: '', });
+    setFormData({...formData, rate: ''});
+    setFormData({...formData, duration: ''})
+    
   };
 
 

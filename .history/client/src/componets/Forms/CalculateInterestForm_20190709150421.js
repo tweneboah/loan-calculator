@@ -15,7 +15,9 @@ const CalculateInterestForm = (props) => {
 
    //Create on change methods
    //This method update the state values
-
+   const onChange = (e) => {
+     setFormData({...formData, [e.target.name]: e.target.value})
+   }
 
    //On Amount Change
    const onChangeAmount = (e) => {
@@ -34,13 +36,15 @@ const CalculateInterestForm = (props) => {
 
   //Onsubmit
   const onFormSubmit = e => {
+   // e.preventDefault();
+
+    console.log(formData.rate)
     props.createLoan(formData);
-    //Emptying the fields
-    setFormData({...formData, amount: '', rate: '', duration: ''});
+    reset
   };
 
 
-   const { register, handleSubmit, reset, errors } = useForm()
+   const { register, handleSubmit, watch, errors } = useForm()
 
 
   return (
